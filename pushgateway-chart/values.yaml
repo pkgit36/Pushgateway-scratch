@@ -8,7 +8,10 @@ deployment:
    name: pushgateway-deployment
    labels:
      app: pushgateway
-     dep: pushgateway-dep
+     env: test
+
+pod:
+  name: pushgateway-pod
 
 image:
   repository: prom/pushgateway

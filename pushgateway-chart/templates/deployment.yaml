@@ -8,12 +8,13 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-       app: prometheus
+       app: {{ .Values.deployment.labels.app }}
+       env: {{ .Values.deployment.labels.env }}
   template:
     metadata:
-      name:  prometheus
+      name:  {{ .Values.deployment.pod.name }}
       labels:
-        app:  prometheus
+        app: {{ .Values.deployment.labels.app }}
     spec:
       containers:
         - name: pushgateway
