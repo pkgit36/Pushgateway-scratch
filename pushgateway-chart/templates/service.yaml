@@ -2,13 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{- .Values.service.name }}
+  name: {{ .Values.service.name }}
   namespace: prometheus
   selector:
     app: pushgateway
   ports:
     - protocol: TCP
-      port: 9091
+      port: {{ .Values.service.port }}
       targetPort: 9091
-  type: {{- .Values.service.type }} # You can adjust the service type if needed
-
+  type: {{ .Values.service.type }} # You can adjust the service type if needed
