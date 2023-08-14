@@ -1,15 +1,14 @@
+# pushgateway-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "pushgateway-chart.fullname" . }}
-  labels:
-    {{- include "pushgateway-chart.labels" . | nindent 4 }}
-spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  name: {{- .Values.service.name }}
+  namespace: prometheus
   selector:
-    {{- include "pushgateway-chart.selectorLabels" . | nindent 4 }}
+    app: pushgateway
+  ports:
+    - protocol: TCP
+      port: 9091
+      targetPort: 9091
+  type: {{- .Values.service.type }} # You can adjust the service type if needed
+
