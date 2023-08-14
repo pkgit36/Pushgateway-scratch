@@ -12,7 +12,7 @@ spec:
        env: {{ .Values.deployment.labels.env }}
   template:
     metadata:
-      name:  {{ .Values.deployment.pod.name }}
+      name:  {{ .Values.pod.name }}
       labels:
         app: {{ .Values.deployment.labels.app }}
     spec:
