@@ -4,9 +4,9 @@ kind: Service
 metadata:
   name: {{ .Values.service.name }}
   namespace: prometheus
+spec:
   selector:
     app: pushgateway
-spec:
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
