@@ -22,3 +22,10 @@ spec:
           image: {{ .Values.image.repository }} # Update to the desired version
           ports:
             - containerPort: 9091
+          volumeMounts:
+            - name: pushgateway-data-volume
+              mountPath: /data
+      volumes:
+         - name: pushgateway-data-volume
+           persistentVolumeClaim:
+             claimName: prom-pg-pvc
