@@ -15,6 +15,7 @@ spec:
       name:  {{ .Values.pod.name }}
       labels:
         app: {{ .Values.deployment.labels.app }}
+        env: {{ .Values.deployment.labels.env }}
     spec:
       containers:
         - name: pushgateway
